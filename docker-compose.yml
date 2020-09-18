@@ -1,8 +1,11 @@
 version: "3"
 services:
-    php:
+    web:
         # the . means to run the docker build in the same directory
         build: .
+
+        depends_on:
+            - db
         ports:
           - "80:80"
           
@@ -11,6 +14,19 @@ services:
             - ./src:/var/www/html/
         networks:
             - default
+    db:
+        image: mysql:latest
+        restart: always
+        # creates an account when no authentication plugin is mentioned
+        command: --default-authentication-plugin=mysql_native_password
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: web_db
+            MYSQL_USER: devuser
+            MYSQL_PASSWORD: devpass
+        # we can access sql from port 6033
+        ports:
+            - 6033:3306
 
 
 # We want to create a volume which will attach a local directory on our host pc to our container

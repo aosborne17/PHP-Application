@@ -48,3 +48,4 @@ docker-compose up
 
 ### PHP Caching
 
+## Adding Database connectivitity
