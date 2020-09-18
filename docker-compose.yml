@@ -6,7 +6,7 @@ services:
         ports:
           - "80:80"
           
-          # this /html is the default directory of apache and the server that will serve our file
+          # this /html is the default directory of apache and the server that will serve our file, in this instance, we want our local src file to be served in the web browser
         volumes:
             - ./src:/var/www/html/
         networks:
