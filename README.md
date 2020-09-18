@@ -1,7 +1,7 @@
 # PHP Application
 
 
-- Create EC2 instance Ubuntu 18.04 to run container
+- Create EC2 instance Ubuntu 18.04 to run Docker
 
 ### Install git
 
@@ -39,5 +39,12 @@ sudo systemctl restart docker
 sudo chmod 666 /var/run/docker.sock
 ```
 
-- Run docker-compose up
+### Running the Web Server
+
+- Making sure we are in the `PHP-Application' directory, run:
+```
+docker-compose up
+```
+
+### PHP Caching
 
