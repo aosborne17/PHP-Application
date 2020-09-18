@@ -1,0 +1,18 @@
+version: "3"
+services:
+    php:
+        # the . means to run the docker build in the same directory
+        build: .
+        ports:
+          - "80:80"
+          
+          # this /html is the default directory of apache and the server that will serve our file
+        volumes:
+            - ./src:/var/www/html/
+        networks:
+            - default
+
+
+# We want to create a volume which will attach a local directory on our host pc to our container
+
+# we have created a http server which has a php interpreter atttached to it, if we go to localhost we will see the application running
